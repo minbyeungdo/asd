@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(topic_tutorial)
+project(topic_test)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -104,7 +104,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES topic_tutorial
+#  LIBRARIES topic_test
 #  CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
@@ -122,7 +122,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/topic_tutorial.cpp
+#   src/${PROJECT_NAME}/topic_test.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -133,8 +133,8 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(my_publisher src/my_publisher.cpp)
-add_executable(my_subscriber src/my_subscriber.cpp)
+add_executable(my_test_publisher src/my_test_publisher.cpp)
+add_executable(my_test_subscriber src/my_test_subscriber.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -144,12 +144,12 @@ add_executable(my_subscriber src/my_subscriber.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(my_publisher ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(my_subscriber ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(my_test_publisher ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(my_test_subscriber ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(my_publisher ${catkin_LIBRARIES})
-target_link_libraries(my_subscriber ${catkin_LIBRARIES})
+target_link_libraries(my_test_publisher ${catkin_LIBRARIES})
+target_link_libraries(my_test_subscriber ${catkin_LIBRARIES})
 
 #############
 ## Install ##
@@ -160,10 +160,10 @@ target_link_libraries(my_subscriber ${catkin_LIBRARIES})
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-catkin_install_python(PROGRAMS
-  scripts/py_publisher.py scripts/py_subscriber.py
-  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
+# catkin_install_python(PROGRAMS
+#   scripts/my_test_publisher.cpp scripts/my_test_subscriber.cpp
+#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+# )
 
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
@@ -198,7 +198,7 @@ catkin_install_python(PROGRAMS
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_topic_tutorial.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_topic_test.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
