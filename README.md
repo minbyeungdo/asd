@@ -30,6 +30,15 @@
   - 빌드
   - 실행
 
+
+  - [service_tutorial](./service_tutorial/)
+      - service_tutorial 패키지 생성
+      - srv 디렉토릴에 AddTwoInts.srv 생성
+      - my_server.cpp, my_client.cpp, py_client.py, py_server.py 노드 생성
+      - 빌드
+      - 실행
+
+      
   ## Ros 명령어
   ### roscore  
     - ROS Master를 실행한다
