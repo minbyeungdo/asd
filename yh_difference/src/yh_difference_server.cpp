@@ -4,11 +4,11 @@
 bool add(yh_difference::YhDifference::Request& req,
         yh_difference::YhDifference::Response& res)
 {
-    res.result = req.a - req.b;
-    ROS_INFO("request: a = %d, b = %d", req.a, req.b);
-    ROS_INFO("response: result = %d", res.result);
-
-    return true;
+    if(req.a > req.b)
+    {
+        res.result = req.a - req.b;
+        return true;
+    }
 }
 
 int main(int argc, char** argv)
@@ -16,10 +16,8 @@ int main(int argc, char** argv)
     ros::init(argc, argv, "yh_difference_server");
     ros::NodeHandle nh;
     
-    ros::ServiceServer yh_difference_server = nh.advertiseService("yh_difference", add);
+    ros::ServiceServer yh_difference_server = nh.advertiseService("yh_difference_service", difference);
     
-    ROS_INFO("Ready to Service Server.");
-
     ros::spin();
 
     return 0;

@@ -1,21 +1,20 @@
 #include "ros/ros.h"
 #include "yh_difference/YhDifference.h"
-
 #include <cstdlib>
 
 int main(int argc, char** argv)
 {
-    ros::init(argc, argv, "yh_difference");
+    ros::init(argc, argv, "yh_difference_client");
 
     if (argc != 3)
     {
-        ROS_INFO("command: rosrun yh_difference yh_difference_client arg1 arg2");
+        ROS_INFO("rosrun yh_difference yh_difference_client a b");
         ROS_INFO("arg1, arg2 : int32 number");
         return 1;
     }
     ros::NodeHandle nh;
 
-    ros::ServiceClient yh_difference_client = nh.serviceClient<yh_difference::YhDifference>("yh_difference");
+    ros::ServiceClient yh_difference_client = nh.serviceClient<yh_difference::YhDifference>("yh_difference_service");
 
     yh_difference::YhDifference srv;
     
@@ -29,7 +28,7 @@ int main(int argc, char** argv)
     }
     else
     {
-        ROS_ERROR("Failed to call service");
+        ROS_ERROR("Failed");
         return 1;
     }
 
