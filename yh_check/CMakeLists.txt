@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(yh_dual)
+project(yh_check)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -50,7 +50,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate messages in the 'msg' folder
 add_message_files(
   FILES
-  YhDual.msg
+  YhCheck.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -104,7 +104,7 @@ generate_messages(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
- LIBRARIES yh_dual
+ LIBRARIES yh_check
 #  CATKIN_DEPENDS message_generation roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
@@ -122,7 +122,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/yh_dual.cpp
+#   src/${PROJECT_NAME}/yh_check.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -133,9 +133,9 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(yh_dual_pub src/yh_dual_pub.cpp)
-add_executable(yh_dual_time src/yh_dual_time.cpp)
-add_executable(yh_dual_int src/yh_dual_int.cpp)
+add_executable(yh_check_distance src/yh_check_distance.cpp)
+add_executable(yh_check_camera src/yh_check_camera.cpp)
+add_executable(yh_check_sub src/yh_check_sub.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -145,18 +145,18 @@ add_executable(yh_dual_int src/yh_dual_int.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(yh_dual_pub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(yh_dual_int ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(yh_dual_time ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(yh_check_camera ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(yh_check_camera ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(yh_check_sub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(yh_dual_int
+target_link_libraries(yh_check_camera
   ${catkin_LIBRARIES}
 )
-target_link_libraries(yh_dual_time
+target_link_libraries(yh_check_sub
   ${catkin_LIBRARIES}
 )
-target_link_libraries(yh_dual_pub
+target_link_libraries(yh_check_distance
   ${catkin_LIBRARIES}
 )
 
@@ -170,7 +170,7 @@ target_link_libraries(yh_dual_pub
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
-  scripts/yh_dual_pub.py scripts/yh_dual_int.py scripts/yh_dual_time.py
+  scripts/yh_check_sub.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
@@ -207,7 +207,7 @@ catkin_install_python(PROGRAMS
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_yh_dual.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_yh_check.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
