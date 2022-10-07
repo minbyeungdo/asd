@@ -138,6 +138,7 @@ include_directories(
 add_executable(turtle_patrol src/turtle_patrol.cpp)
 add_executable(turtle_keyboard src/turtle_keyboard.cpp)
 add_executable(turtle_keyboard_clear src/turtle_keyboard_clear.cpp)
+add_executable(yh_turtle_circle src/yh_turtle_circle.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -150,6 +151,7 @@ add_executable(turtle_keyboard_clear src/turtle_keyboard_clear.cpp)
 add_dependencies(turtle_patrol ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(turtle_keyboard ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(turtle_keyboard_clear ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(yh_turtle_circle ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(turtle_patrol
@@ -159,6 +161,9 @@ target_link_libraries(turtle_keyboard
   ${catkin_LIBRARIES}
 )
 target_link_libraries(turtle_keyboard_clear
+${catkin_LIBRARIES}
+)
+target_link_libraries(yh_turtle_circle
 ${catkin_LIBRARIES}
 )
 
@@ -181,6 +186,18 @@ catkin_install_python(PROGRAMS
 )
 catkin_install_python(PROGRAMS
   scripts/turtle_keyboard_clear.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+catkin_install_python(PROGRAMS
+  scripts/yh_turtle_circle.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+catkin_install_python(PROGRAMS
+  scripts/yh_turtle_triangle.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+catkin_install_python(PROGRAMS
+  scripts/turtle_goal.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

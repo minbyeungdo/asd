@@ -1,4 +1,4 @@
-#!/uer/bin/python3
+#!/uer/bin/python
 # -*- coding:-8 -*-
 import rospy
 from param_tutorial.srv import Calculate, CalculateRequest

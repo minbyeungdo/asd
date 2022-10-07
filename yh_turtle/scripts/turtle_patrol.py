@@ -1,5 +1,5 @@
-#!/usr/bin/python3
-# -*- coding: urf-8 -*-
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 import rospy
 from geometry_msgs.msg import Twist
