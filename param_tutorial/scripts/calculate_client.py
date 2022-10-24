@@ -1,5 +1,5 @@
 #!/uer/bin/python
-# -*- coding:-8 -*-
+# -*- coding: utf-8 -*-
 import rospy
 from param_tutorial.srv import Calculate, CalculateRequest
 import sys
