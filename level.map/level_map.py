@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from collections import level1.map
+from collections import level1_map
 
 N, M = map(int, input().split())
 
@@ -18,7 +18,7 @@ def bfs(x, y):
   dy = [0, 0, -1, 1]
 
   # deque 생성
-  queue = level1.map()
+  queue = level1_map()
   queue.append((x, y))
 
   while queue:
@@ -34,7 +34,7 @@ def bfs(x, y):
         continue
       
       # 벽이므로 진행 불가
-      if graph[nx][ny] == 0:
+      if graph[nx][ny] == x:
         continue
       
       # 벽이 아니므로 이동

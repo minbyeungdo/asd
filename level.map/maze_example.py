@@ -4,7 +4,7 @@ import os
 import time
 
 
-map:list[str] = []
+map = []
 # map = ['oxxoooxx','oxxoooxx']
 # map = [[0,0,0,0,1,0,1],[0,0,0,0,1,0,1]]]
 # map[0][8]
@@ -42,10 +42,10 @@ def loadMap():
     # f.close()
 
     # 형렬, 매트릭스
-    with open('./level1.map', 'r') as f:
+    with open('./level.map/level1.map', 'r') as f:
 
         # [0,0,0]
-        # for in  #명확한 제한이 존재할때
+        # for in  # 명확한 제한이 존재할때
 
         y=0
         while True:
@@ -178,8 +178,11 @@ if __name__ == "__main__":
     #     display()
 
     #     # 플레이어가 이동할 수 있는 방향을 파악하고 선택지를 표시 
+    
     #     # 플레이어가 선택한 방향으로 플레이어 이동 (상태를 변경) (플레이어를 어떻게 이동시킬지)
+
     #     # 플레이어의 현재위치가 종료위치인지 확인 (확인된 결과에 따라 계속진행할지 종료할지 선택)
+    
     #     pass
 
 
